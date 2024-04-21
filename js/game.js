@@ -2,6 +2,7 @@ let points, round, locationId, clickedLatLng, line, realMarker
 let roundActive = false
 let roundPoints = []
 let roundDistances = []
+let gameImgs = []
 
 function startGame(src='home') {
 
@@ -19,15 +20,25 @@ function startGame(src='home') {
     points = 0;
     round = 0;
 
+    genImages()
     newImage()
 
+}
+
+function genImages() {
+    const numOfImgs = Object.keys(locations).length
+    const set = new Set();
+    while (set.size < 5) {
+        set.add(Math.floor(Math.random() * numOfImgs));
+    }
+    gameImgs = [...set]; 
 }
 
 function newImage() {
 
     if (line) map.removeLayer(line)
-    const numOfImgs = Object.keys(locations).length
-    locationId = Math.floor(Math.random() * numOfImgs) + 1;
+    locationId = gameImgs[round]
+
     $('.game-image').css('background-image', `url("img/${locationId}.png")`)
     $('.confirm').removeClass('next-round').text('CONFIRM').hide();
     $('.distance').hide();
@@ -39,7 +50,7 @@ function newImage() {
     map.setView([40.507476,-74.4541267], 13)
 
     roundActive = true;
-    round++;
+    round++; // must be after locationId declaration
     $('.round').text(`ROUND ${round}/5`)
 }
 
