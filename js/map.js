@@ -1,4 +1,5 @@
 let boundsGroup, districtBounds, map, currentMarker
+let gameImgVisible = false
 
 $(document).ready(function() {
 
@@ -56,13 +57,18 @@ $(document).ready(function() {
 
             $('.directions').fadeOut();
             $('.confirm').show();
-        } else {
-            console.log('No intersection found');
         }
 
     });
-      
-      
+
+    map.on('touchstart', function() {
+
+        if (gameImgVisible) {
+            $('.game-image').css('opacity', '0.5')
+            gameImgVisible = false
+        }
+
+    });
 
 })
 

@@ -23,6 +23,10 @@ function startGame(src='home') {
     genImages()
     newImage()
 
+    setTimeout(() => {
+        gameImgVisible = true // Delay so init fit bounds doesn't trigger
+    }, 500);
+
 }
 
 function genImages() {
@@ -126,9 +130,11 @@ function finishGame() {
     // $('.game').css('visibility', 'visible')
 }
 
+const isMobile = window.matchMedia("only screen and (max-width: 480px)").matches
+
 $(document).ready(function() {
     
-    if (!window.matchMedia("only screen and (max-width: 480px)").matches) {
+    if (!isMobile) {
         $('.game-image').on('mouseenter', function() {
             $(this).css('width', '550px')
             $(this).css('height', '450px')
@@ -137,6 +143,13 @@ $(document).ready(function() {
             $(this).css('width', '350px')
             $(this).css('height', '250px')
         })  
+    } else {
+        $('.game-image').click(function() {
+            if (!gameImgVisible) {
+                $('.game-image').css('opacity', 1)
+                gameImgVisible = true
+            }
+        })
     }
     
     $('.confirm').click(function() {
