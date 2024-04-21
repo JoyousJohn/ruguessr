@@ -128,14 +128,16 @@ function finishGame() {
 
 $(document).ready(function() {
     
-    $('.game-image').on('mouseenter', function() {
-        $(this).css('width', '550px')
-        $(this).css('height', '450px')
-    })   
-    $('.game-image').on('mouseleave', function() {
-        $(this).css('width', '350px')
-        $(this).css('height', '250px')
-    })  
+    if (!window.matchMedia("only screen and (max-width: 480px)").matches) {
+        $('.game-image').on('mouseenter', function() {
+            $(this).css('width', '550px')
+            $(this).css('height', '450px')
+        })   
+        $('.game-image').on('mouseleave', function() {
+            $(this).css('width', '350px')
+            $(this).css('height', '250px')
+        })  
+    }
     
     $('.confirm').click(function() {
 

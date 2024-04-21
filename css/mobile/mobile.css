@@ -7,6 +7,10 @@
         bottom: 0;
     }
 
+    .game-image-wrapper {
+        justify-content: center;
+    }
+
     .game-image {
         width: 90%;
     }
