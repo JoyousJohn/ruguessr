@@ -1,5 +1,6 @@
 let points, round, locationId, clickedLatLng, line, realMarker
 let roundActive = false
+let isFinishing = false
 let roundPoints = []
 let roundDistances = []
 let gameImgs = []
@@ -19,8 +20,12 @@ function startGame(src='home') {
 
     points = 0;
     round = 0;
+    roundDistances = []
+    roundPoints = []
+    gameImgs = []
 
     $('.game-image').css('opacity', 1) // Image can have previous half opacity befire "play again"
+    $('.finished').addClass('pointer') // If removed by skipping score animation or when anim completed
 
     genImages()
     newImage()
@@ -110,21 +115,35 @@ function finishGame() {
 
     $('.game-stats-title').fadeIn();
 
+    isFinishing = true
+
     setTimeout(() => {
         roundDistances.forEach((dist, idx) => {
+            
             const delay = idx * 1150; // increase delay by 100ms for each iteration
             setTimeout(() => {
-                $(`.r${idx + 1}`).text(`Round ${idx + 1}: ${dist}m away`).slideDown('slow');
-    
-                if (idx == 4) {
-                    setTimeout(() => {
-                        $('.total-points').text(points + ' points!').slideDown();
+
+                if (isFinishing) {
+
+                    $(`.r${idx + 1}`).text(`Round ${idx + 1}: ${dist}m away`).slideDown('slow');
+        
+                    if (idx == 4 && isFinishing) {
+
                         setTimeout(() => {
-                            $('.play-again').fadeIn();
-                        }, 500);
-                    }, 1500);
+                            $('.total-points').text(points + ' points!').slideDown();
+                            if (isFinishing) { 
+                                setTimeout(() => {
+                                    $('.play-again').fadeIn();
+                                    isFinishing = false
+                                    $('.finished').removeClass('pointer')
+                                }, 500);
+                            }
+                        }, 1500);
+
+                    }
+
                 }
-    
+
             }, delay);
         });
     }, 1000);
@@ -163,6 +182,21 @@ $(document).ready(function() {
         } else {
             newImage();
         }
+
+    })
+
+    $('.finished').click(function() {
+
+        if (!isFinishing) return;
+
+        roundDistances.forEach((dist, idx) => {
+            $(`.r${idx + 1}`).text(`Round ${idx + 1}: ${dist}m away`).slideDown('fast');
+        })
+        $('.total-points').text(points + ' points!').slideDown('fast');
+        $('.play-again').fadeIn();
+        isFinishing = false
+
+        $('.finished').removeClass('pointer')
 
     })
 
