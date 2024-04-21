@@ -29,7 +29,7 @@ function genImages() {
     const numOfImgs = Object.keys(locations).length
     const set = new Set();
     while (set.size < 5) {
-        set.add(Math.floor(Math.random() * numOfImgs));
+        set.add(Math.floor(Math.random() * numOfImgs) + 1);
     }
     set.forEach(i => {
         $('.preload').append($('<img>').attr('src', `img/${i}.png`))
