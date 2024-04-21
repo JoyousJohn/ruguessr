@@ -20,16 +20,65 @@ $(document).ready(function() {
         id: 'mapbox/streets-v11',
     }).addTo(map);
 
-    // Add the GeoJSON layer to the map
     var districtsLayer = L.geoJSON(districts, {
         style: function(feature) {
             return {
                 color: 'blue',
-                fillOpacity: 0.05,
-                weight: 3
+                fillOpacity: 0,
+                weight: 2
             };
         }
     }).addTo(map);
+
+    const mapBounds = map.getBounds();
+    const expandedMapBounds = [
+        mapBounds.getWest() - 1,
+        mapBounds.getSouth() - 1,
+        mapBounds.getEast() + 1,
+        mapBounds.getNorth() + 1
+    ];
+    const mapBoundingBox = turf.bboxPolygon(expandedMapBounds);
+
+
+    const districtsFeatureCollection = turf.featureCollection(districts.features);
+
+    const polygons = [];
+
+    for (const feature of districts.features) {
+        if (feature.geometry.type === 'Polygon') {
+            polygons.push(feature.geometry.coordinates);
+        }
+    }
+
+    const multiPolygon = {
+        type: 'MultiPolygon',
+        coordinates: polygons
+    };
+
+    console.log('multiPolygon: ', multiPolygon)
+    console.log('mapBoundingBox: ', mapBoundingBox)
+    console.log('districtsFeatureCollection: ', districtsFeatureCollection)
+
+    const validPolygon = {
+        type: "Polygon",
+        coordinates: mapBoundingBox.geometry.coordinates
+    };
+
+    console.log('validPolygon: ', validPolygon)
+
+    // Calculate the difference between the map bounding box and the districts
+    const outsideDistricts = turf.difference(validPolygon, multiPolygon);
+
+    // Create a layer for the areas outside the districts
+    const outsideDistrictsLayer = L.geoJSON(outsideDistricts, {
+        fillColor: '#000000',
+        fillOpacity: 0.5,
+        weight: 0,
+        pane: 'overlayPane'
+    }).addTo(map);
+
+    // Bring the districts layer to the front
+    // districtsLayer.bringToFront();
 
     districtBounds = districtsLayer.getBounds();
     
