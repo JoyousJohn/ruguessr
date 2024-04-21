@@ -167,7 +167,7 @@ $(document).ready(function() {
     } else {
         $('.game-image').click(function() {
             if (!gameImgVisible) {
-                $('.game-image').css('opacity', 1)
+                $('.game-image').width('90%');
                 gameImgVisible = true
             }
         })

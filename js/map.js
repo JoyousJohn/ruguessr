@@ -64,7 +64,7 @@ $(document).ready(function() {
     map.on('movestart', function() {
 
         if (isMobile && gameImgVisible) {
-            $('.game-image').css('opacity', '0.5')
+            $('.game-image').width('30%')
             gameImgVisible = false
         }
 
