@@ -71,10 +71,6 @@ function newImage() {
 function confirm() {
 
     const realLoc = locations[locationId].latlng
-
-    console.log('realLoc:', realLoc)
-    console.log('clickedLatLng:', clickedLatLng)
-
     const clickedPoint = turf.point([clickedLatLng.lng, clickedLatLng.lat]);
 
     const dist = parseInt(turf.distance(realLoc, clickedPoint, {units: 'meters'}));
