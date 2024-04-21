@@ -1,0 +1,24 @@
+@media only screen  and (max-width: 480px) {
+
+    .directions { display: none; }
+    
+    .game-stats {
+        top: unset;
+        bottom: 0;
+    }
+
+    .game-image {
+        width: 90%;
+    }
+
+    .logo-wrap {
+        flex-direction: column;
+    }
+
+    .favicon {
+        margin-right: 0;
+        width: 57%;
+        margin-bottom: 3rem;
+    }
+
+}
