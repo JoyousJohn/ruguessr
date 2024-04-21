@@ -59,6 +59,12 @@ $(document).ready(function() {
             $('.confirm').show();
         }
 
+        // Minimize image if pin tapped on map without map being moved
+        if (isMobile && gameImgVisible) {
+            $('.game-image').width('30%')
+            gameImgVisible = false
+        }
+
     });
 
     map.on('movestart', function() {

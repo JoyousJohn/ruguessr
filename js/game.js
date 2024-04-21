@@ -66,6 +66,13 @@ function newImage() {
     roundActive = true;
     round++; // must be after locationId declaration
     $('.round').text(`ROUND ${round}/5`)
+
+    setTimeout(() => { // wait for setView to finish
+        if (isMobile && !gameImgVisible) {
+            $('.game-image').width('90%');
+            gameImgVisible = true
+        }    
+    }, 250);
 }
 
 function confirm() {
