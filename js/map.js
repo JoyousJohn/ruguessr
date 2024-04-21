@@ -10,10 +10,11 @@ $(document).ready(function() {
     map = L.map('map', {
         maxBounds: bounds, // Set the maximum bounds
         maxBoundsViscosity: 1.3, // Optional: Adjust the stickiness of the bounds (1.0 is default)
-        zoomControl: false
+        zoomControl: false,
     }).setView([40.507476,-74.4541267], 14);
 
     map.setMinZoom(13);
+    map.getRenderer(map).options.padding = 1; // Keep map outside viewport rendered to avoid flicker
 
     L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoiaGFwcHlqb2huIiwiYSI6ImNsdjY5M29meTBidXkyaXJxYnI1NWpxNzMifQ.FNhHOeMeeiPgbEj_CAe5pA', {
         maxZoom: 20,
@@ -74,7 +75,6 @@ $(document).ready(function() {
         fillColor: '#000000',
         fillOpacity: 0.5,
         weight: 0,
-        pane: 'overlayPane'
     }).addTo(map);
 
     // Bring the districts layer to the front
