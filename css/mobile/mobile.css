@@ -11,8 +11,11 @@
         justify-content: center;
     }
 
+    .giw-2 { width: 100%; }
+
     .game-image {
         width: 90%;
+        margin-top: 0.5rem;
     }
 
     .logo-wrap {
@@ -25,4 +28,23 @@
         margin-bottom: 3rem;
     }
 
+    .game-stats { display: none; }
+    .game-stats-mobile { display: flex; }
+
+    /* Confirm btn */
+    .mid-wrapper {
+        top: unset;
+        bottom: 0;
+        width: max-content; /* So "Next round", "xm away +x pts" doesn't break and shorten btd width */
+    }
+
+}
+
+.game-stats-mobile {
+    background-color: white;
+    border-radius: 15px;
+    padding: 0.2rem 1rem;
+    width: fit-content;
+    margin-top: 0.5rem;
+    white-space: preserve;
 }

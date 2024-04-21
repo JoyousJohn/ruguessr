@@ -18,6 +18,10 @@
     font-size: 3rem;
 }
 
+.font-1p2rem { font-size: 1.2rem; }
+
+.font-1p5rem { font-size: 1.5rem; }
+
 
 .minguwest { font-family: 'Minguwest'; }
 
@@ -32,3 +36,5 @@
 .pointer { cursor: pointer; }
 
 .select-none { user-select: none; }
+
+.pe-none { pointer-events: none; }

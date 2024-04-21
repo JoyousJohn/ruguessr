@@ -52,6 +52,13 @@
 .as-baseline { align-self: baseline; }
 .as-stretch { align-self: stretch; }
 
+.fixed { position: fixed; }
+.w-full { width: 100%; }
+
+.inset-0 { inset: 0; }
+
+.z-401 { z-index: 401; }
+
 .p-0 { padding: 0; }
 .p-1 { padding: 0.25rem; }
 .p-2 { padding: 0.5rem; }

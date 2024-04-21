@@ -20,6 +20,8 @@ function startGame(src='home') {
     points = 0;
     round = 0;
 
+    $('.game-image').css('opacity', 1) // Image can have previous half opacity befire "play again"
+
     genImages()
     newImage()
 
@@ -104,7 +106,7 @@ function confirm() {
 function finishGame() {
 
     $('.game').hide();
-    $('.finished').show();
+    $('.finished').css('display', 'flex');
 
     $('.game-stats-title').fadeIn();
 

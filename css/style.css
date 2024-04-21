@@ -23,7 +23,6 @@
     background-repeat: no-repeat;
     width: 350px;
     height: 250px;
-    position: fixed;
     z-index: 401;
     margin: 1rem;
     border: 2px solid crimson;
@@ -44,10 +43,6 @@
     padding: 0.5rem 1.5rem 0.5rem 1.5rem;
     z-index: 401;
     box-shadow: 0 0 8px lightgray;
-}
-
-.round {
-    font-size: 1.5rem;
 }
 
 .points {

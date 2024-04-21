@@ -61,9 +61,9 @@ $(document).ready(function() {
 
     });
 
-    map.on('touchstart', function() {
+    map.on('movestart', function() {
 
-        if (gameImgVisible) {
+        if (isMobile && gameImgVisible) {
             $('.game-image').css('opacity', '0.5')
             gameImgVisible = false
         }
