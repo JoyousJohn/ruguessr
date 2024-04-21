@@ -31,6 +31,9 @@ function genImages() {
     while (set.size < 5) {
         set.add(Math.floor(Math.random() * numOfImgs));
     }
+    set.forEach(i => {
+        $('.preload').attr('src', `img/${i}.png`)
+    })
     gameImgs = [...set]; 
 }
 
