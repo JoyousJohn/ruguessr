@@ -1,0 +1,29 @@
+.bg-red { background-color: red; }
+.bg-blue { background-color: blue; }
+.bg-green { background-color: green; }
+.bg-yellow { background-color: yellow; }
+.bg-orange { background-color: orange; }
+.bg-purple { background-color: purple; }
+.bg-pink { background-color: pink; }
+.bg-cyan { background-color: cyan; }
+.bg-magenta { background-color: magenta; }
+.bg-brown { background-color: brown; }
+.bg-gray { background-color: gray; }
+.bg-black { background-color: black; }
+.bg-white { background-color: white; }
+
+.text-red { color: red; }
+.text-blue { color: blue; }
+.text-green { color: green; }
+.text-yellow { color: yellow; }
+.text-orange { color: orange; }
+.text-purple { color: purple; }
+.text-pink { color: pink; }
+.text-cyan { color: cyan; }
+.text-magenta { color: magenta; }
+.text-brown { color: brown; }
+.text-gray { color: gray; }
+.text-black { color: black; }
+.text-white { color: white; }
+
+.bg-dark-crimson { background-color: #6a1a1a; }

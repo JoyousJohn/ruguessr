@@ -1,0 +1,135 @@
+.splash {
+    height: 100vh;
+}
+
+.play-btn {
+    border: 2px solid white;
+    width: min-content;
+    transition: 0.2s;
+}
+
+.play-btn:hover {
+    background-color: white;
+    color: #6a1a1a;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+}
+
+.game {
+    position: fixed;
+    inset: 0;
+}
+
+.game-image {
+    background-repeat: no-repeat;
+    width: 350px;
+    height: 250px;
+    position: fixed;
+    z-index: 401;
+    margin: 1rem;
+    border: 2px solid crimson;
+    border-radius: 0.5rem;
+    background-size: cover;
+    box-shadow: 0 0 8px darkgray;
+    transition: 300ms;
+    background-position: center;
+}
+
+.game-stats {
+    position: fixed;
+    top: 0;
+    right: 0;
+    margin: 1rem;
+    background-color: white;
+    border-radius: 20px;
+    padding: 0.5rem 1.5rem 0.5rem 1.5rem;
+    z-index: 401;
+    box-shadow: 0 0 8px lightgray;
+}
+
+.round {
+    font-size: 1.5rem;
+}
+
+.points {
+    font-size: 1.2rem;
+}
+
+.directions {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    padding: 0.5rem 2rem 0.5rem 2rem;
+    margin: 1rem;
+    z-index: 401;
+    background-color: white;
+    border-radius: 25px;
+    font-size: 1.2rem;
+}
+
+.mid-wrapper {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 401;
+    margin: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.confirm {
+    padding: 0.5rem 2rem 0.5rem 2rem;
+    background-color: lime;
+    color: white;
+    font-size: 1.5rem;
+    border-radius: 25px;
+    box-shadow: 0 0 10px darkgray;
+    transition: 0.3s;
+}
+
+.distance {
+    background-color: white;
+    border-radius: 25px;
+    padding: 0.2rem 1rem 0.2rem 1rem;
+    margin-top: 0.5rem;
+    width: fit-content;
+}
+
+.confirm:hover {
+    background-color: green;
+}
+
+.next-round {
+    background-color: orange;
+}
+
+.next-round:hover {
+    background-color: gold;
+}
+
+.finished {
+    height: 100vh;
+}
+
+.finish-stats {
+    font-size: 1.4rem;
+    line-height: 1.1;
+    font-weight: 300;
+}
+
+.ver {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    color: white;
+    font-weight: 200;
+    margin-right: 0.3rem;
+    text-align: right;
+}
+
+.play-again {
+    width: max-content;
+    margin-top: 2rem;
+    position: absolute;
+}

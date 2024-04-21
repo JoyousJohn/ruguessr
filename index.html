@@ -1,0 +1,83 @@
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RutgersGuessr</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/font.css">
+    <link rel="stylesheet" href="css/colors.css">
+    <link rel="stylesheet" href="css/positioning.css">
+    <link rel="stylesheet" href="css/map.css">
+
+    <link href="https://fonts.cdnfonts.com/css/minguwest" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/dizhitl" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/league-mono" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/adlinnaka" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@turf/turf@6/turf.min.js"></script>
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script src="js/ActiveLayers.js"></script>
+
+    <script src="js/districts.js"></script>
+    <script src="js/locs.js"></script>
+    <script src="js/map.js"></script>
+    <script src="js/game.js"></script>
+
+</head>
+
+<body class="margin-0 bg-dark-crimson">
+
+    <div class="splash minguwest center flex flex-column ai-center jc-center">
+
+        <div class="flex ai-center">
+            <img src="favicon.png" width="50" style="margin-right: 1rem;">
+            <div class="huge-font text-white">RutgersGuessr</div>
+        </div>
+        <div class="large-font text-white play-btn p-2 px-10 rounded pointer select-none" onclick="startGame()">PLAY</div>
+
+    </div>
+
+    <div class="game hidden">
+
+        <div class="game-image"></div>
+
+        <div class="mid-wrapper">
+            <div class="confirm adlinnaka none pointer select-none">CONFIRM</div>
+            <div class="distance dizhitl none center"></div>
+        </div>
+
+        <div class="game-stats center">
+            <div class="round adlinnaka">ROUND x/5</div>
+            <div class="points dizhitl">0 points</div>
+        </div>
+        <div class="directions dizhitl">Select a point on the map to make your guess!</div>
+        
+        <div id="map"></div>
+
+    </div>
+
+    <div class="finished none flex flex-column ai-center jc-center">
+
+        <div class="game-stats-title minguwest text-white huge-font none">Game Stats</div>
+        <div class="finish-stats dizhitl text-white p-2">
+            <div class="r1 none"></div>
+            <div class="r2 none"></div>
+            <div class="r3 none"></div>
+            <div class="r4 none"></div>
+            <div class="r5 none"></div>
+        </div>
+        <div class="ignore">
+            <div class="total-points adlinnaka text-white large-font none"></div>
+            <div class="play-again minguwest none medium-font text-white play-btn p-2 px-10 rounded pointer select-none" onclick="startGame('again')">PLAY AGAIN</div>
+        </div>
+    
+    </div>
+
+    <div class="ver dizhitl">V0.4.19.24<br>Not affiliated with Rutgers University</div>
+
+</body>
+</html>
