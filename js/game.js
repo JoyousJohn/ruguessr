@@ -5,6 +5,9 @@ let roundPoints = []
 let roundDistances = []
 let gameImgs = []
 
+const maxPoints = 1000
+const threshold = 50
+
 function startGame(src='home') {
 
     if (src === 'home') {
@@ -14,7 +17,7 @@ function startGame(src='home') {
     } else if (src === 'again') {
         $('.finished').fadeOut();
         $('.game').show();
-        $('.finished, .finished *:not(".finish-stats"):not(".ignore")').hide();
+        $('.finished, .finished *:not(".finish-stats"):not(".ignore"):not(".ignore *")').hide(); // temp
         $('.points').text('0 points')
     }
 
@@ -82,9 +85,9 @@ function confirm() {
 
     const dist = parseInt(turf.distance(realLoc, clickedPoint, {units: 'meters'}));
     roundDistances.push(dist)
-    let pts = 5025 - parseInt(dist)
+    let pts = maxPoints+threshold - parseInt(dist)
 
-    if (pts > 5000) { pts = 5000; }
+    if (pts > maxPoints) { pts = maxPoints; }
     if (pts < 0) { pts = 0; }
 
     $('.distance').text(`${dist}m away +${pts} points`).show();
@@ -119,6 +122,7 @@ function finishGame() {
     $('.game-stats-title').fadeIn();
 
     isFinishing = true
+    fakeLvl = level
 
     setTimeout(() => {
         roundDistances.forEach((dist, idx) => {
@@ -129,7 +133,12 @@ function finishGame() {
                 if (isFinishing) {
 
                     $(`.r${idx + 1}`).text(`Round ${idx + 1}: ${dist}m away`).slideDown('slow');
-        
+                    
+                    let p = maxPoints - dist
+                    if (p < 0) { p = 0 }
+                    const xpToAdd = Math.floor(p/100)
+                    addXp(xpToAdd, useFake=true)
+
                     if (idx == 4 && isFinishing) {
 
                         setTimeout(() => {
@@ -151,7 +160,8 @@ function finishGame() {
         });
     }, 1000);
 
-    // $('.game').css('visibility', 'visible')
+    addXp(Math.floor(points/100), useFake=false, updateBar=false)
+
 }
 
 const isMobile = window.matchMedia("only screen and (max-width: 480px)").matches
@@ -198,6 +208,8 @@ $(document).ready(function() {
         $('.total-points').text(points + ' points!').slideDown('fast');
         $('.play-again').fadeIn();
         isFinishing = false
+
+        updateProgressBar()
 
         $('.finished').removeClass('pointer')
 

@@ -28,6 +28,7 @@
     <script src="js/locs.js"></script>
     <script src="js/map.js"></script>
     <script src="js/game.js"></script>
+    <script src="js/leveling.js"></script>
 
 </head>
 
@@ -40,6 +41,17 @@
             <div class="huge-font text-white">RutgersGuessr</div>
         </div>
         <div class="large-font text-white play-btn p-2 px-10 rounded pointer select-none" onclick="startGame()">PLAY</div>
+
+        <div class="level-wrapper">
+            <div class="level-relative flex jc-center minguwest">
+                <div class="xp-current flex jc-center ai-center"></div>
+                <div class="xp-needed flex jc-center ai-center"></div>
+                <div class="level-bar"></div>
+                <div class="level-progress-wrapper">
+                    <div class="level-progress"></div>
+                </div>
+            </div>   
+        </div>
 
     </div>
 
@@ -74,6 +86,18 @@
     <div class="finished none flex-column ai-center jc-center fixed w-full pointer">
 
         <div class="game-stats-title minguwest text-white huge-font none">Game Stats</div>
+        
+        <div class="level-wrapper ignore">
+            <div class="level-relative flex jc-center minguwest">
+                <div class="xp-current flex jc-center ai-center"></div>
+                <div class="xp-needed flex jc-center ai-center"></div>
+                <div class="level-bar"></div>
+                <div class="level-progress-wrapper">
+                    <div class="level-progress"></div>
+                </div>
+            </div>   
+        </div>
+        
         <div class="finish-stats dizhitl text-white p-2">
             <div class="r1 none"></div>
             <div class="r2 none"></div>
@@ -81,9 +105,10 @@
             <div class="r4 none"></div>
             <div class="r5 none"></div>
         </div>
-        <div class="ignore">
+        <div class="ignore flex flex-column ai-center">
             <div class="total-points adlinnaka text-white large-font none"></div>
             <div class="play-again minguwest none medium-font text-white play-btn p-2 px-10 rounded pointer select-none" onclick="startGame('again')">PLAY AGAIN</div>
+
         </div>
     
     </div>

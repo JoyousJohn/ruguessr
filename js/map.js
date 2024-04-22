@@ -26,7 +26,9 @@ $(document).ready(function() {
             return {
                 color: 'blue',
                 fillOpacity: 0,
-                weight: 2
+                weight: 2,
+                dragging: !L.Browser.touch,
+                touchZoom: true,
             };
         }
     }).addTo(map);
