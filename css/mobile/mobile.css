@@ -11,7 +11,10 @@
         justify-content: center;
     }
 
-    .giw-2 { width: 100%; }
+    .giw-2 { 
+        width: 100%; 
+        pointer-events: none;
+    }
 
     .game-image {
         width: 90%;
