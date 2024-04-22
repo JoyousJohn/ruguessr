@@ -30,6 +30,10 @@
         margin-bottom: 3rem;
     }
 
+    .level-relative {
+        width: 70vw;
+    }
+
     .game-stats { display: none; }
     .game-stats-mobile { display: flex; }
 
