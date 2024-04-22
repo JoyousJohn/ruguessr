@@ -1,5 +1,6 @@
 const xpString = localStorage.getItem('xp');
 let xp = parseInt(xpString);
+if (isNaN(xp)) xp = 0; 
 let fakeXp = xp
 
 const xpReq = {
