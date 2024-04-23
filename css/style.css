@@ -86,6 +86,7 @@
     box-shadow: 0 0 8px darkgray;
     transition: 300ms;
     background-position: center;
+    pointer-events: all;
 }
 
 .game-stats {
