@@ -17,7 +17,7 @@ function startGame(src='home') {
     } else if (src === 'again') {
         $('.finished').fadeOut();
         $('.game').show();
-        $('.finished, .finished *:not(".finish-stats"):not(".ignore"):not(".ignore *")').hide(); // temp
+        $('.finished, .finished *:not(".finish-stats"):not(".ignore"):not(".ignore *"), .total-points, .play-again').hide(); // temp
         $('.points').text('0 points')
     }
 
