@@ -8,6 +8,11 @@ let gameImgs = []
 const maxPoints = 1000
 const threshold = 50
 
+function resetMobileZoom() {
+    const viewport = $('meta[name="viewport"]');
+    viewport.attr('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no');
+}
+
 function startGame(src='home') {
 
     if (src === 'home') {
@@ -32,6 +37,8 @@ function startGame(src='home') {
 
     genImages()
     newImage()
+
+    resetMobileZoom()
 
     setTimeout(() => {
         gameImgVisible = true // Delay so init fit bounds doesn't trigger
