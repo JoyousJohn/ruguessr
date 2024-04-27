@@ -242,6 +242,16 @@ under {
     text-align: right;
 }
 
+.src {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    color: white;
+    font-weight: 200;
+    margin-left: 0.3rem;
+    cursor: pointer;
+}
+
 .play-again {
     width: max-content;
     margin-top: 3rem;
