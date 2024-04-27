@@ -17,7 +17,7 @@ function startGame(src='home') {
 
     if (src === 'home') {
         $('.splash').fadeOut();
-        $('.ver').hide();
+        $('.ver, .src').hide();
         $('.game').css('visibility', 'visible')
     } else if (src === 'again') {
         $('.finished').fadeOut();
