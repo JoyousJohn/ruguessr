@@ -45,7 +45,8 @@
     box-shadow: 0 0 10px gold;
     width: 0;
     border-radius: 0 10px 10px 0;
-    transition: width 0.5s ease-out;
+    transition-duration: 1s;
+    transition-timing-function: ease-out;
 }
 
 .xp-current {
