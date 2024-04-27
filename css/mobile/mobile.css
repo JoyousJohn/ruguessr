@@ -1,5 +1,17 @@
 @media only screen  and (max-width: 480px) {
 
+    .welcome {
+        width: 100%;
+    }
+
+    .welcome-wrap, .tips {
+        margin: 1rem;
+    }
+
+    .tips {
+        font-size: 1.2rem;
+    }
+
     .directions { display: none; }
     
     .game-stats {

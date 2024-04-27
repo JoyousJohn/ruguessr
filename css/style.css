@@ -69,6 +69,69 @@
     border-radius: 50%;
 }
 
+.welcome-wrap {
+    position: fixed;
+    margin: 2rem;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+}
+
+.welcome {
+    background-color: rgb(235, 235, 235);
+    border-radius: 25px;
+    height: min-content;
+    width: 40%;
+}
+
+.welcome-title {
+    text-align: center;
+    font-size: 2rem;
+    padding: 2rem;
+    padding-bottom: 0;
+    color: black;
+}
+
+.tips {
+    margin: 3rem;
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+    /* color: rgb(55, 55, 55); */
+    font-size: 1.5rem;
+    font-weight: 200;
+    /* list-style-position: inside; */
+}
+
+.play-now {
+    font-size: 1.5rem;
+    background-color: crimson;
+    color: white;
+    border-radius: 50px;
+    margin-bottom: 1rem;
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    transition: 300ms;
+    cursor: pointer;
+    user-select: none;
+}
+
+.play-now:hover {
+    background-color: red;
+}
+
+under {
+    text-decoration: underline;
+}
+
+.screen-overlay {
+    position: fixed;
+    inset: 0;
+    background-color: black;
+    opacity: 0.8;
+    z-index: 1;
+}
+
 .game {
     position: fixed;
     inset: 0;

@@ -35,6 +35,11 @@ function startGame(src='home') {
     $('.game-image').css('opacity', 1) // Image can have previous half opacity befire "play again"
     $('.finished').addClass('pointer') // If removed by skipping score animation or when anim completed
 
+    if (localStorage.getItem('tipsRead') !== 'true') {
+        $('.welcome-wrap').css('display', 'flex');
+        $('.screen-overlay').show();
+    }
+
     genImages()
     newImage()
 
@@ -220,6 +225,13 @@ $(document).ready(function() {
 
         $('.finished').removeClass('pointer')
 
+    })
+
+    // localStorage.setItem('tipsRead', false);
+
+    $('.play-now').click(function() {
+        $('.welcome-wrap, .screen-overlay').fadeOut('fast');
+        localStorage.setItem('tipsRead', true);
     })
 
 })
